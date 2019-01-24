@@ -8,7 +8,7 @@ import (
 	"testing"
 
 	_ "github.com/joho/godotenv/autoload"
-	webservices "github.com/omniboost/go-globe-webservices"
+	webservices "github.com/omniboost/go-exactglobe-webservices"
 )
 
 func TestResourceRead(t *testing.T) {
@@ -21,6 +21,7 @@ func TestResourceRead(t *testing.T) {
 	databaseServerName := os.Getenv("GLOBE_DATABASE_SERVER_NAME")
 	username := os.Getenv("GLOBE_USERNAME")
 	password := os.Getenv("GLOBE_PASSWORD")
+	log.Println(baseURLString, databaseName, username, password)
 
 	client := webservices.NewClient(nil, *baseURL, databaseName, databaseServerName, username, password)
 	client.SetDebug(true)

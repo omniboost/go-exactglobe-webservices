@@ -4,8 +4,8 @@ import (
 	"net/http"
 	"net/url"
 
-	"github.com/omniboost/go-globe-webservices/odata"
-	"github.com/omniboost/go-globe-webservices/utils"
+	"github.com/omniboost/go-exactglobe-webservices/odata"
+	"github.com/omniboost/go-exactglobe-webservices/utils"
 )
 
 func (c *Client) NewResourceReadRequest() ResourceReadRequest {
