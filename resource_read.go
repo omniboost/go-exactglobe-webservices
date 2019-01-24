@@ -133,8 +133,11 @@ func (r *ResourceReadRequest) Do() (ResourceReadResponseBody, error) {
 type Resources []Resource
 
 type Resource struct {
+	ID          int
 	CompanyName string
 	FirstName   string
 	LastName    string
 	FullName    string
+	Status      string
+	BirthDate   *DateTime `json:"BirthDate,omitempty"`
 }

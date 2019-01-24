@@ -28,11 +28,11 @@ func TestResourceRead(t *testing.T) {
 	client.SetDisallowUnknownFields(true)
 
 	req := client.NewResourceReadRequest()
-	req.QueryParams().Top.Set(1)
-	req.QueryParams().Select.Add("CompanyName")
-	req.QueryParams().Select.Add("FirstName")
-	req.QueryParams().Select.Add("LastName")
-	req.QueryParams().Select.Add("FullName")
+	// req.QueryParams().Top.Set(1)
+	// req.QueryParams().Select.Add("CompanyName")
+	// req.QueryParams().Select.Add("FirstName")
+	// req.QueryParams().Select.Add("LastName")
+	// req.QueryParams().Select.Add("FullName")
 
 	// req.PathParams().Date = time.Date(2018, 12, 5, 0, 0, 0, 0, time.UTC)
 	resp, err := req.Do()
