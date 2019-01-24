@@ -1,5 +1,7 @@
 github.com/Azure/go-ntlmssp v0.0.0-20180810175552-4a21cbd618b4 h1:pSm8mp0T2OH2CPmPDPtwHPr3VAQaOwVF/JbllOPP4xA=
 github.com/Azure/go-ntlmssp v0.0.0-20180810175552-4a21cbd618b4/go.mod h1:chxPXzSsl7ZWRAuOIE23GDNzjWuZquvFlgA8xmpunjU=
+github.com/gorilla/schema v0.0.0-20171211162101-9fa3b6af65dc h1:ZTcKDaJOhVhscc4XgpGKLRJJXD2bk879TBpXWzHDE5A=
+github.com/gorilla/schema v0.0.0-20171211162101-9fa3b6af65dc/go.mod h1:kgLaKoK1FELgZqMAVxx/5cbj0kT+57qxUrAlIO2eleU=
 github.com/gorilla/schema v1.0.2 h1:sAgNfOcNYvdDSrzGHVy9nzCQahG+qmsg+nE8dK85QRA=
 github.com/gorilla/schema v1.0.2/go.mod h1:kgLaKoK1FELgZqMAVxx/5cbj0kT+57qxUrAlIO2eleU=
 github.com/joho/godotenv v1.2.1-0.20171222233539-06e67b5ef3be h1:wCNHMr1JGw2AeQ6hS/Flm/vxoMoEhgb3UiDEC3ZwuAQ=
