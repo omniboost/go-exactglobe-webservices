@@ -86,7 +86,7 @@ type RequestCompletionCallback func(*http.Request, *http.Response)
 func (c *Client) SetHTTPClient(client *http.Client) {
 	// set NTLM authentication
 	client.Transport = ntlmssp.Negotiator{
-		RoundTripper: &http.Transport{},
+		RoundTripper: http.DefaultTransport,
 	}
 
 	c.http = client
