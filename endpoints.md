@@ -2,7 +2,7 @@
 
 ## Account
   - [ ] Create
-  - [ ] Read
+  - [x] Read
   - [ ] Update
   - [ ] Delete
   - [ ] Retrieveset
@@ -716,7 +716,7 @@ ProductionScrap
 
 Project
   - [ ] Create
-  - [ ] Read
+  - [x] Read
   - [ ] Update
   - [ ] Delete
   - [ ] Retrieveset
@@ -828,7 +828,7 @@ RequestTypeCategory
 
 Resource
   - [ ] Create
-  - [ ] Read
+  - [x] Read
   - [ ] Update
   - [ ] Delete
   - [ ] Retrieveset
