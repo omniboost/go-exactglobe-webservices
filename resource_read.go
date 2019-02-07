@@ -34,6 +34,7 @@ func (c *Client) NewResourceReadQueryParams() *ResourceReadQueryParams {
 		Select: odata.NewSelect(selectFields),
 		Filter: odata.NewFilter(),
 		Top:    odata.NewTop(),
+		Skip:   odata.NewSkip(),
 	}
 }
 
@@ -42,6 +43,7 @@ type ResourceReadQueryParams struct {
 	Select *odata.Select `schema:"$select,omitempty"`
 	Filter *odata.Filter `schema:"$filter,omitempty"`
 	Top    *odata.Top    `schema:"$top,omitempty"`
+	Skip   *odata.Skip   `schema:"$skip,omitempty"`
 }
 
 func (p ResourceReadQueryParams) ToURLValues() (url.Values, error) {
@@ -87,12 +89,7 @@ func (s *Client) NewResourceReadRequestBody() ResourceReadRequestBody {
 	return ResourceReadRequestBody{}
 }
 
-type ResourceReadRequestBody struct {
-	// @TODO: check if this an OData struct or something
-	Select *odata.Select `schema:"$select,omitempty"`
-	Filter *odata.Filter `schema:"$filter,omitempty"`
-	Top    *odata.Top    `schema:"$top,omitempty"`
-}
+type ResourceReadRequestBody struct{}
 
 func (r *ResourceReadRequest) RequestBody() *ResourceReadRequestBody {
 	return &r.requestBody
@@ -133,11 +130,13 @@ func (r *ResourceReadRequest) Do() (ResourceReadResponseBody, error) {
 type Resources []Resource
 
 type Resource struct {
-	ID          int
-	CompanyName string
-	FirstName   string
-	LastName    string
-	FullName    string
-	Status      string
-	BirthDate   *DateTime `json:"BirthDate,omitempty"`
+	ID                  int
+	CompanyName         string
+	FirstName           string
+	LastName            string
+	FullName            string
+	Status              string
+	BirthDate           *DateTime `json:"BirthDate,omitempty"`
+	EmploymentStartDate *DateTime `json:"EmploymentStartDate"`
+	EmploymentEndDate   *DateTime `json:"EmploymentEndDate"`
 }
