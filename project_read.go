@@ -90,12 +90,7 @@ func (s *Client) NewProjectReadRequestBody() ProjectReadRequestBody {
 	return ProjectReadRequestBody{}
 }
 
-type ProjectReadRequestBody struct {
-	// @TODO: check if this an OData struct or something
-	Select *odata.Select `schema:"$select,omitempty"`
-	Filter *odata.Filter `schema:"$filter,omitempty"`
-	Top    *odata.Top    `schema:"$top,omitempty"`
-}
+type ProjectReadRequestBody struct{}
 
 func (r *ProjectReadRequest) RequestBody() *ProjectReadRequestBody {
 	return &r.requestBody
