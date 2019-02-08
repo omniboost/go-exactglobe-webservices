@@ -340,7 +340,7 @@ type Account struct {
 	MessageIDRemarks            string
 	Modifier                    int
 	ModifierName                string
-	AccountNamestring           string
+	AccountName                 string
 	NumberFreeField1            float64
 	NumberFreeField2            float64
 	NumberFreeField3            float64
