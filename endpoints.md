@@ -204,7 +204,7 @@ ContractLocation
 
 CostCenter
   - [ ] Create
-  - [ ] Read
+  - [x] Read
   - [ ] Update
   - [ ] Delete
   - [ ] Retrieveset
