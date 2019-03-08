@@ -212,11 +212,11 @@ type Account struct {
 	CompanyType                 int
 	ContactFullName             string
 	ContactID                   uuid.UUID
-	ContactNumberFreeField1     int
-	ContactNumberFreeField2     int
-	ContactNumberFreeField3     int
-	ContactNumberFreeField4     int
-	ContactNumberFreeField5     int
+	ContactNumberFreeField1     float64
+	ContactNumberFreeField2     float64
+	ContactNumberFreeField3     float64
+	ContactNumberFreeField4     float64
+	ContactNumberFreeField5     float64
 	CountryOfAssembly           string
 	CountryOfOrigin             string
 	CreditorCode                string

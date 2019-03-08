@@ -174,11 +174,11 @@ type Project struct {
 	Modifie                int
 	ModifierName           string
 	ModifiedDate           DateTime
-	NumberFreeField1       int
-	NumberFreeField2       int
-	NumberFreeField3       int
-	NumberFreeField4       int
-	NumberFreeField5       int
+	NumberFreeField1       float64
+	NumberFreeField2       float64
+	NumberFreeField3       float64
+	NumberFreeField4       float64
+	NumberFreeField5       float64
 	ParentProject          string
 	ParentProjectName      string
 	PercentCompletion      int
