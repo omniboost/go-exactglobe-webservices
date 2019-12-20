@@ -355,20 +355,45 @@ type ErrorResponse struct {
 	Errors []error
 }
 
-// @TODO
-// {
-//   "error": {
-//     "code": "",
-//     "message": {
-//       "lang": "nl-NL",
-//       "value": "No property dinger exists in type Exact.Metadata.Entity.Account at position 0."
-//     }
-//   }
-// }
+type Error struct {
+	Code       string     `json:"code"`
+	Message    Message    `json:"message"`
+	InnerError InnerError `json:"innererror"`
+}
+
+func (e Error) Empty() bool {
+	return e.Code == "" && e.Message.Value == "" && e.InnerError.Message == ""
+}
+
+func (e Error) Error() string {
+	if e.Code != "" {
+		if e.InnerError.Message != "" {
+			return fmt.Sprintf("%s: %s", e.Code, e.InnerError.Message)
+		}
+		return fmt.Sprintf("%s: %s", e.Code, e.Message.Value)
+	}
+
+	if e.InnerError.Message != "" {
+		return fmt.Sprintf("%s", e.InnerError.Message)
+	}
+
+	return fmt.Sprintf("%s", e.Message.Value)
+}
+
+type Message struct {
+	Lang  string `json:"lang"`
+	Value string `json:"value"`
+}
+
+type InnerError struct {
+	Message    string `json:"message"`
+	Type       string `json:"type"`
+	Stacktrace string `json:"stacktrace"`
+}
 
 func (r *ErrorResponse) UnmarshalJSON(data []byte) error {
 	tmp := struct {
-		Error string `json:"error"`
+		Error Error `json:"error"`
 	}{}
 
 	err := json.Unmarshal(data, &tmp)
@@ -376,8 +401,8 @@ func (r *ErrorResponse) UnmarshalJSON(data []byte) error {
 		return err
 	}
 
-	if tmp.Error != "" {
-		r.Errors = append(r.Errors, errors.New(tmp.Error))
+	if !tmp.Error.Empty() {
+		r.Errors = append(r.Errors, tmp.Error)
 	}
 
 	return nil
@@ -392,18 +417,7 @@ func (r ErrorResponse) Error() string {
 		return strings.Join(str, ", ")
 	}
 
-	switch r.Response.StatusCode {
-	case 401:
-		return "The Client Key parameter is missing or is incorrectly entered."
-	case 404:
-		return "The requested resource does not exist."
-	case 406:
-		return "The :document-id provided is in an invalid state."
-	case 422:
-		return "Some parameters were incorrect."
-	}
-
-	return fmt.Sprintf("Unknown status code %d", r.Response.StatusCode)
+	return r.Errors[0].Error()
 }
 
 func checkContentType(response *http.Response) error {
