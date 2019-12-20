@@ -3,12 +3,9 @@ package webservices_test
 import (
 	"encoding/json"
 	"log"
-	"net/url"
-	"os"
 	"testing"
 
 	_ "github.com/joho/godotenv/autoload"
-	webservices "github.com/omniboost/go-exactglobe-webservices"
 )
 
 func TestResourceRead(t *testing.T) {
