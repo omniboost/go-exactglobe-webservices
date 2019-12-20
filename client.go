@@ -367,10 +367,19 @@ func (e Error) Empty() bool {
 
 func (e Error) Error() string {
 	if e.Code != "" {
+		if e.InnerError.InternalException.Message != "" {
+			return fmt.Sprintf("%s: %s", e.Code, e.InnerError.InternalException.Message)
+		}
+
 		if e.InnerError.Message != "" {
 			return fmt.Sprintf("%s: %s", e.Code, e.InnerError.Message)
 		}
+
 		return fmt.Sprintf("%s: %s", e.Code, e.Message.Value)
+	}
+
+	if e.InnerError.InternalException.Message != "" {
+		return fmt.Sprintf("%s", e.InnerError.InternalException.Message)
 	}
 
 	if e.InnerError.Message != "" {
@@ -386,6 +395,13 @@ type Message struct {
 }
 
 type InnerError struct {
+	Message           string            `json:"message"`
+	Type              string            `json:"type"`
+	Stacktrace        string            `json:"stacktrace"`
+	InternalException InternalException `json:"internalexception"`
+}
+
+type InternalException struct {
 	Message    string `json:"message"`
 	Type       string `json:"type"`
 	Stacktrace string `json:"stacktrace"`
