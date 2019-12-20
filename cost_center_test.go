@@ -12,21 +12,6 @@ import (
 )
 
 func TestCostCenterRead(t *testing.T) {
-	baseURLString := os.Getenv("GLOBE_BASE_URL")
-	baseURL, err := url.Parse(baseURLString)
-	if err != nil {
-		t.Error(err)
-	}
-	databaseName := os.Getenv("GLOBE_DATABASE_NAME")
-	databaseServerName := os.Getenv("GLOBE_DATABASE_SERVER_NAME")
-	username := os.Getenv("GLOBE_USERNAME")
-	password := os.Getenv("GLOBE_PASSWORD")
-	log.Println(baseURLString, databaseName, username, password)
-
-	client := webservices.NewClient(nil, *baseURL, databaseName, databaseServerName, username, password)
-	client.SetDebug(true)
-	client.SetDisallowUnknownFields(true)
-
 	req := client.NewCostCenterReadRequest()
 	req.QueryParams().Top.Set(500)
 
