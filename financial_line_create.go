@@ -122,7 +122,7 @@ type FinancialLineCreateResponseBody struct {
 		Description           interface{} `json:"Description"`
 		CurrencyCode          interface{} `json:"CurrencyCode"`
 		CurrencyRate          interface{} `json:"CurrencyRate"`
-		Amount                int         `json:"Amount"`
+		Amount                float64     `json:"Amount"`
 		VATBasis              interface{} `json:"VATBasis"`
 		VATAmount             interface{} `json:"VATAmount"`
 		VATCode               interface{} `json:"VATCode"`
