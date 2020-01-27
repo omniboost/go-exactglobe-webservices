@@ -273,20 +273,21 @@ func (c *Client) Do(req *http.Request, responseBody interface{}) (*http.Response
 	// 	return httpResp, err
 	// }
 
-	type Wrapper struct {
-		D struct {
-			Results json.RawMessage `json:"results"`
-			Next    string          `json:"__next"`
-		} `json:"d"`
-	}
+	// type Wrapper struct {
+	// 	D struct {
+	// 		Next     string       `json:"__next"`
+	// 		MetaData edm.MetaData `json:"__metadata"`
+	// 	} `json:"d"`
+	// }
 
 	// try to decode body into interface parameter
-	w := &Wrapper{}
+	// w := &Wrapper{}
 	dec := json.NewDecoder(httpResp.Body)
 	if c.disallowUnknownFields {
 		dec.DisallowUnknownFields()
 	}
-	err = dec.Decode(w)
+	log.Printf("%+v", responseBody)
+	err = dec.Decode(responseBody)
 	if err != nil && err != io.EOF {
 		// create a simple error response
 		errorResponse := &ErrorResponse{Response: httpResp}
@@ -294,11 +295,11 @@ func (c *Client) Do(req *http.Request, responseBody interface{}) (*http.Response
 		return httpResp, errorResponse
 	}
 
-	err = json.Unmarshal(w.D.Results, responseBody)
-	if err != nil && err != io.EOF {
-		// @TODO: fix this
-		log.Fatal(err)
-	}
+	// err = json.Unmarshal(w.D.Results, responseBody)
+	// if err != nil && err != io.EOF {
+	// 	// @TODO: fix this
+	// 	log.Fatal(err)
+	// }
 
 	return httpResp, nil
 }

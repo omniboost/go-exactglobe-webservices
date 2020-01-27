@@ -8,11 +8,9 @@ import (
 	_ "github.com/joho/godotenv/autoload"
 )
 
-func TestCostCenterRead(t *testing.T) {
-	req := client.NewCostCenterReadRequest()
-	req.QueryParams().Top.Set(500)
+func TestMetadata(t *testing.T) {
+	req := client.NewMetadataRequest()
 
-	// req.PathParams().Date = time.Date(2018, 12, 5, 0, 0, 0, 0, time.UTC)
 	resp, err := req.Do()
 	if err != nil {
 		t.Error(err)
