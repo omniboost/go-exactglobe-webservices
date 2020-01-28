@@ -201,6 +201,7 @@ func (c *Client) NewRequest(ctx context.Context, method string, URL url.URL, bod
 
 	// create new http request
 	req, err := http.NewRequest(method, URL.String(), buf)
+	req.Host = URL.Hostname()
 	if err != nil {
 		return nil, err
 	}
