@@ -29,7 +29,7 @@ type MetadataRequest struct {
 }
 
 func (c *Client) NewMetadataQueryParams() *MetadataQueryParams {
-	selectFields, _ := utils.Fields(&Resource{})
+	selectFields := []string{}
 	return &MetadataQueryParams{
 		Select: odata.NewSelect(selectFields),
 		Filter: odata.NewFilter(),
@@ -103,7 +103,7 @@ func (r *MetadataRequest) NewResponseBody() *MetadataResponseBody {
 	return &MetadataResponseBody{}
 }
 
-type MetadataResponseBody Resources
+type MetadataResponseBody struct{}
 
 func (r *MetadataRequest) URL() url.URL {
 	return r.client.GetEndpointURL("$metadata", r.PathParams())

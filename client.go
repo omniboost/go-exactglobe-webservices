@@ -185,6 +185,7 @@ func (c *Client) GetEndpointURL(path string, pathParams PathParams) url.URL {
 	}
 
 	clientURL.Path = buf.String()
+	clientURL.RawPath = buf.String()
 	return clientURL
 }
 

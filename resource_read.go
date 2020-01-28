@@ -4,6 +4,7 @@ import (
 	"net/http"
 	"net/url"
 
+	"github.com/omniboost/go-exactglobe-webservices/edm"
 	"github.com/omniboost/go-exactglobe-webservices/odata"
 	"github.com/omniboost/go-exactglobe-webservices/utils"
 	uuid "github.com/satori/go.uuid"
@@ -104,7 +105,17 @@ func (r *ResourceReadRequest) NewResponseBody() *ResourceReadResponseBody {
 	return &ResourceReadResponseBody{}
 }
 
-type ResourceReadResponseBody Resources
+type ResourceReadResponseBody struct {
+	D struct {
+		Results []struct {
+			Next     string       `json:"__next"`
+			MetaData edm.MetaData `json:"__metadata"`
+
+			Resource
+		} `json:"results"`
+		Next string `json:"__next"`
+	} `json:"d"`
+}
 
 func (r *ResourceReadRequest) URL() url.URL {
 	return r.client.GetEndpointURL("Resource", r.PathParams())
@@ -127,8 +138,6 @@ func (r *ResourceReadRequest) Do() (ResourceReadResponseBody, error) {
 	_, err = r.client.Do(req, responseBody)
 	return *responseBody, err
 }
-
-type Resources []Resource
 
 type Resource struct {
 	Blocked                     bool       `json:"Blocked"`

@@ -10,7 +10,8 @@ import (
 
 func TestAccountRead(t *testing.T) {
 	req := client.NewAccountReadRequest()
-	req.QueryParams().Top.Set(1)
+	req.QueryParams().Top.Set(10)
+	req.QueryParams().Filter.Set("AccountCode eq '            80004153'")
 	// req.QueryParams().Select.Add("CompanyName")
 	// req.QueryParams().Select.Add("FirstName")
 	// req.QueryParams().Select.Add("LastName")

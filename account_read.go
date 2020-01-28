@@ -4,6 +4,7 @@ import (
 	"net/http"
 	"net/url"
 
+	"github.com/omniboost/go-exactglobe-webservices/edm"
 	"github.com/omniboost/go-exactglobe-webservices/odata"
 	"github.com/omniboost/go-exactglobe-webservices/utils"
 	uuid "github.com/satori/go.uuid"
@@ -90,7 +91,7 @@ func (s *Client) NewAccountReadRequestBody() AccountReadRequestBody {
 	return AccountReadRequestBody{}
 }
 
-type AccountReadRequestBody Accounts
+type AccountReadRequestBody struct{}
 
 func (r *AccountReadRequest) RequestBody() *AccountReadRequestBody {
 	return &r.requestBody
@@ -104,7 +105,17 @@ func (r *AccountReadRequest) NewResponseBody() *AccountReadResponseBody {
 	return &AccountReadResponseBody{}
 }
 
-type AccountReadResponseBody Accounts
+type AccountReadResponseBody struct {
+	D struct {
+		Results []struct {
+			Next     string       `json:"__next"`
+			MetaData edm.MetaData `json:"__metadata"`
+
+			Account
+		} `json:"results"`
+		Next string `json:"__next"`
+	} `json:"d"`
+}
 
 func (r *AccountReadRequest) URL() url.URL {
 	return r.client.GetEndpointURL("Account", r.PathParams())
@@ -273,7 +284,7 @@ type Account struct {
 	CompanyCodeDebtorAccountID  *uuid.UUID
 	CustomerID                  *uuid.UUID
 	Document                    string
-	DocumentCreato              string
+	DocumentCreator             string
 	DocumentCreatedDate         *DateTime
 	DocumentSubject             string
 	DunBradstreetNumber         string
@@ -341,6 +352,7 @@ type Account struct {
 	Modifier                    int
 	ModifierName                string
 	AccountName                 string
+	Note                        interface{} `json:"Note"`
 	NumberFreeField1            float64
 	NumberFreeField2            float64
 	NumberFreeField3            float64
