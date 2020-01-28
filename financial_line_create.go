@@ -209,12 +209,12 @@ func (r *FinancialLineCreateRequest) Do() (FinancialLineCreateResponseBody, erro
 }
 
 type NewFinancialLine struct {
-	TransactionKey string `json:"TransactionKey,omitempty"`
-	Journal        string `json:"Journal"`
-	GLAccount      string `json:"GLAccount"`
-	CostCenter     string `json:"CostCenter"`
-	CostUnit       string `json:"CostUnit"`
-	Resource       int    `json:"Resource"`
-	Project        string `json:"Project"`
-	Amount         string `json:"Amount"`
+	TransactionKey string  `json:"TransactionKey,omitempty"`
+	Journal        string  `json:"Journal"`
+	GLAccount      string  `json:"GLAccount"`
+	CostCenter     string  `json:"CostCenter"`
+	CostUnit       string  `json:"CostUnit"`
+	Resource       int     `json:"Resource"`
+	Project        string  `json:"Project"`
+	Amount         float64 `json:"Amount"`
 }
