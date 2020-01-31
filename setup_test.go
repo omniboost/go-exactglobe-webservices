@@ -2,6 +2,7 @@ package webservices_test
 
 import (
 	"log"
+	"net/http"
 	"net/url"
 	"os"
 	"testing"
@@ -27,10 +28,20 @@ func TestMain(m *testing.M) {
 	debug := os.Getenv("GLOBE_DEBUG")
 	log.Println(baseURLString, databaseName, username, password)
 
-	client = webservices.NewClient(nil, *baseURL, databaseName, databaseServerName, username, password)
+	client = webservices.NewClient(nil, *baseURL, databaseName, databaseServerName)
 	if debug != "" {
 		client.SetDebug(true)
 	}
 	client.SetDisallowUnknownFields(true)
+	client.SetBeforeRequestDo(func(http *http.Client, req *http.Request, body interface{}) {
+		// http.Transport = &ntlm.NtlmTransport{
+		// 	Domain:   "",
+		// 	User:     client.Username(),
+		// 	Password: client.Password(),
+		// }
+
+		// Set credentials
+		req.SetBasicAuth(username, password)
+	})
 	m.Run()
 }

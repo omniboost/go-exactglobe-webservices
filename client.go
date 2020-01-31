@@ -14,8 +14,6 @@ import (
 	"net/url"
 	"strings"
 	"text/template"
-
-	ntlmssp "github.com/Azure/go-ntlmssp"
 )
 
 const (
@@ -34,7 +32,7 @@ var (
 )
 
 // NewClient returns a new Exact Globe Client client
-func NewClient(httpClient *http.Client, baseURL url.URL, databaseName string, databaseServerName string, username string, password string) *Client {
+func NewClient(httpClient *http.Client, baseURL url.URL, databaseName string, databaseServerName string) *Client {
 	if httpClient == nil {
 		httpClient = http.DefaultClient
 	}
@@ -44,8 +42,6 @@ func NewClient(httpClient *http.Client, baseURL url.URL, databaseName string, da
 	client.SetHTTPClient(httpClient)
 	client.SetDatabaseName(databaseName)
 	client.SetDatabaseServerName(databaseServerName)
-	client.SetUsername(username)
-	client.SetPassword(password)
 	client.SetBaseURL(baseURL)
 	client.SetDebug(false)
 	client.SetUserAgent(userAgent)
@@ -66,8 +62,6 @@ type Client struct {
 	// credentials
 	databaseName       string
 	databaseServerName string
-	username           string
-	password           string
 
 	// User agent for client
 	userAgent string
@@ -77,18 +71,16 @@ type Client struct {
 	disallowUnknownFields bool
 
 	// Optional function called after every successful request made to the DO Clients
+	beforeRequestDo    BeforeRequestDoCallback
 	onRequestCompleted RequestCompletionCallback
 }
+
+type BeforeRequestDoCallback func(*http.Client, *http.Request, interface{})
 
 // RequestCompletionCallback defines the type of the request callback function
 type RequestCompletionCallback func(*http.Request, *http.Response)
 
 func (c *Client) SetHTTPClient(client *http.Client) {
-	// set NTLM authentication
-	client.Transport = ntlmssp.Negotiator{
-		RoundTripper: http.DefaultTransport,
-	}
-
 	c.http = client
 }
 
@@ -114,22 +106,6 @@ func (c *Client) DatabaseServerName() string {
 
 func (c *Client) SetDatabaseServerName(databaseServerName string) {
 	c.databaseServerName = databaseServerName
-}
-
-func (c *Client) Username() string {
-	return c.username
-}
-
-func (c *Client) SetUsername(username string) {
-	c.username = username
-}
-
-func (c *Client) Password() string {
-	return c.password
-}
-
-func (c *Client) SetPassword(password string) {
-	c.password = password
 }
 
 func (c *Client) BaseURL() url.URL {
@@ -168,6 +144,10 @@ func (c *Client) SetDisallowUnknownFields(disallowUnknownFields bool) {
 	c.disallowUnknownFields = disallowUnknownFields
 }
 
+func (c *Client) SetBeforeRequestDo(fun BeforeRequestDoCallback) {
+	c.beforeRequestDo = fun
+}
+
 func (c *Client) GetEndpointURL(path string, pathParams PathParams) url.URL {
 	clientURL := c.BaseURL()
 	clientURL.Path = clientURL.Path + path
@@ -201,13 +181,10 @@ func (c *Client) NewRequest(ctx context.Context, method string, URL url.URL, bod
 
 	// create new http request
 	req, err := http.NewRequest(method, URL.String(), buf)
-	req.Host = URL.Hostname()
+	// req.Host = URL.Hostname()
 	if err != nil {
 		return nil, err
 	}
-
-	// Set credentials
-	req.SetBasicAuth(c.Username(), c.Password())
 
 	// optionally pass along context
 	if ctx != nil {
@@ -232,6 +209,25 @@ func (c *Client) Do(req *http.Request, responseBody interface{}) (*http.Response
 		dump, _ := httputil.DumpRequestOut(req, true)
 		log.Println(string(dump))
 	}
+
+	if c.beforeRequestDo != nil {
+		c.beforeRequestDo(c.http, req, responseBody)
+	}
+
+	// r, e := c.http.Get("http://10.121.0.106:10443/services/Exact.Entity.REST.EG/Account")
+	// func() {
+	// 	dump, _ := httputil.DumpResponse(r, true)
+	// 	log.Println(string(dump))
+	// }()
+	// log.Fatal(e)
+	// os.Exit(12)
+
+	// u, err := url.Parse("http://10.121.0.106:10443/services/Exact.Entity.REST.EG")
+	// if err != nil {
+	// 	return nil, err
+	// }
+
+	// req.URL = u
 
 	httpResp, err := c.http.Do(req)
 	if err != nil {

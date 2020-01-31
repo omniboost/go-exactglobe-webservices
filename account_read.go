@@ -123,7 +123,7 @@ func (r *AccountReadRequest) URL() url.URL {
 
 func (r *AccountReadRequest) Do() (AccountReadResponseBody, error) {
 	// Create http request
-	req, err := r.client.NewRequest(nil, r.Method(), r.URL(), r.RequestBody())
+	req, err := r.client.NewRequest(nil, r.Method(), r.URL(), nil)
 	if err != nil {
 		return *r.NewResponseBody(), err
 	}
