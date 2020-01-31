@@ -115,7 +115,7 @@ type FinancialLineCreateResponseBody struct {
 		FinancialPeriod       interface{} `json:"FinancialPeriod"`
 		SequenceNumber        interface{} `json:"SequenceNumber"`
 		EntryNumber           interface{} `json:"EntryNumber"`
-		Journal               string      `json:"Journal"`
+		Journal               string      `json:"Journal,omitempty"`
 		LineNumber            interface{} `json:"LineNumber"`
 		EntryDate             interface{} `json:"EntryDate"`
 		GLAccount             string      `json:"GLAccount"`
@@ -142,7 +142,7 @@ type FinancialLineCreateResponseBody struct {
 		Quantity              interface{} `json:"Quantity"`
 		SerialNumber          interface{} `json:"SerialNumber"`
 		ItemCode              interface{} `json:"ItemCode"`
-		Project               string      `json:"Project"`
+		Project               string      `json:"Project,omitempty"`
 		ProjectDescription    interface{} `json:"ProjectDescription"`
 		Warehouse             interface{} `json:"Warehouse"`
 		WarehouseLocation     interface{} `json:"WarehouseLocation"`
@@ -212,9 +212,14 @@ type NewFinancialLine struct {
 	TransactionKey string  `json:"TransactionKey,omitempty"`
 	Journal        string  `json:"Journal"`
 	GLAccount      string  `json:"GLAccount"`
-	CostCenter     string  `json:"CostCenter"`
-	CostUnit       string  `json:"CostUnit"`
+	CostCenter     string  `json:"CostCenter,omitempty"`
+	CostUnit       string  `json:"CostUnit,omitempty"`
 	Resource       int     `json:"Resource"`
-	Project        string  `json:"Project"`
+	Project        string  `json:"Project,omitempty"`
 	Amount         float64 `json:"Amount"`
+	DebtorNumber   string  `json:"DebtorNumber,omitempty"`
+	CreditorNumber string  `json:"CreditorNumber,omitempty"`
+	VATAmount      float64 `json:"VATAmount"`
+	VATCode        string  `json:"VATCode"`
+	Description    string  `json:"Description"`
 }

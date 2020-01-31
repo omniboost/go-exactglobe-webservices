@@ -136,4 +136,5 @@ func (r *FinancialHeaderCreateRequest) Do() (FinancialHeaderCreateResponseBody, 
 type NewFinancialHeader struct {
 	TransactionKey string `json:"TransactionKey"`
 	Journal        string `json:"Journal"`
+	DebtorNumber   string `json:"DebtorNumber"`
 }
