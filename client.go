@@ -205,29 +205,14 @@ func (c *Client) NewRequest(ctx context.Context, method string, URL url.URL, bod
 // pointed to by v, or returned as an error if an Client error has occurred. If v implements the io.Writer interface,
 // the raw response will be written to v, without attempting to decode it.
 func (c *Client) Do(req *http.Request, responseBody interface{}) (*http.Response, error) {
-	if c.debug == true {
-		dump, _ := httputil.DumpRequestOut(req, true)
-		log.Println(string(dump))
-	}
-
 	if c.beforeRequestDo != nil {
 		c.beforeRequestDo(c.http, req, responseBody)
 	}
 
-	// r, e := c.http.Get("http://10.121.0.106:10443/services/Exact.Entity.REST.EG/Account")
-	// func() {
-	// 	dump, _ := httputil.DumpResponse(r, true)
-	// 	log.Println(string(dump))
-	// }()
-	// log.Fatal(e)
-	// os.Exit(12)
-
-	// u, err := url.Parse("http://10.121.0.106:10443/services/Exact.Entity.REST.EG")
-	// if err != nil {
-	// 	return nil, err
-	// }
-
-	// req.URL = u
+	if c.debug == true {
+		dump, _ := httputil.DumpRequestOut(req, true)
+		log.Println(string(dump))
+	}
 
 	httpResp, err := c.http.Do(req)
 	if err != nil {
