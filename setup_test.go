@@ -7,7 +7,9 @@ import (
 	"os"
 	"testing"
 
+	"github.com/Azure/go-ntlmssp"
 	webservices "github.com/omniboost/go-exactglobe-webservices"
+	// ntlm "github.com/vadimi/go-http-ntlm"
 )
 
 var (
@@ -33,12 +35,23 @@ func TestMain(m *testing.M) {
 		client.SetDebug(true)
 	}
 	client.SetDisallowUnknownFields(true)
-	client.SetBeforeRequestDo(func(http *http.Client, req *http.Request, body interface{}) {
-		// http.Transport = &ntlm.NtlmTransport{
-		// 	Domain:   "",
-		// 	User:     client.Username(),
-		// 	Password: client.Password(),
+	client.SetBeforeRequestDo(func(httpClient *http.Client, req *http.Request, body interface{}) {
+		// ntlmTransport := &ntlm.NtlmTransport{
+		// 	User:     username,
+		// 	Password: password,
+		// 	Client: &http.Client{
+		// 		Transport:     httpClient.Transport,
+		// 		CheckRedirect: httpClient.CheckRedirect,
+		// 		Timeout:       httpClient.Timeout,
+		// 		Jar:           httpClient.Jar,
+		// 	},
 		// }
+
+		ntlmTransport := ntlmssp.Negotiator{
+			RoundTripper: http.DefaultTransport,
+		}
+
+		httpClient.Transport = ntlmTransport
 
 		// Set credentials
 		req.SetBasicAuth(username, password)
