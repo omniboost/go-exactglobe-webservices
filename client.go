@@ -269,7 +269,7 @@ func (c *Client) Do(req *http.Request, responseBody interface{}) (*http.Response
 	if c.disallowUnknownFields {
 		dec.DisallowUnknownFields()
 	}
-	log.Printf("%+v", responseBody)
+
 	err = dec.Decode(responseBody)
 	if err != nil && err != io.EOF {
 		// create a simple error response
