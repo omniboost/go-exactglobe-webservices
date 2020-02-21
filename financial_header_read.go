@@ -174,7 +174,7 @@ type FinancialHeader struct {
 	PaymentMethod          interface{} `json:"PaymentMethod"`
 	PaymentCondition       interface{} `json:"PaymentCondition"`
 	SelectionCode          interface{} `json:"SelectionCode"`
-	OurReference           interface{} `json:"OurReference"`
+	OurReference           string      `json:"OurReference"`
 	YourReference          interface{} `json:"YourReference"`
 	FulfillmentDate        string      `json:"FulfillmentDate"`
 	InvoiceDueDate         interface{} `json:"InvoiceDueDate"`
