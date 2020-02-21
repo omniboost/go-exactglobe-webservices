@@ -138,4 +138,5 @@ type NewFinancialHeader struct {
 	Journal        string `json:"Journal"`
 	DebtorNumber   string `json:"DebtorNumber"`
 	OurReference   string `json:"OurReference"`
+	YourReference  string `json:"YourReference"`
 }

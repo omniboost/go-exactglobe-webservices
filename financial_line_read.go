@@ -170,7 +170,7 @@ type FinancialLine struct {
 	Resource              int         `json:"Resource"`
 	FullName              string      `json:"FullName"`
 	OurReference          string      `json:"OurReference"`
-	YourReference         interface{} `json:"YourReference"`
+	YourReference         string      `json:"YourReference"`
 	Quantity              int         `json:"Quantity"`
 	SerialNumber          interface{} `json:"SerialNumber"`
 	ItemCode              string      `json:"ItemCode"`

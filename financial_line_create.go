@@ -138,7 +138,7 @@ type FinancialLineCreateResponseBody struct {
 		Resource              int         `json:"Resource"`
 		FullName              interface{} `json:"FullName"`
 		OurReference          string      `json:"OurReference"`
-		YourReference         interface{} `json:"YourReference"`
+		YourReference         string      `json:"YourReference"`
 		Quantity              interface{} `json:"Quantity"`
 		SerialNumber          interface{} `json:"SerialNumber"`
 		ItemCode              interface{} `json:"ItemCode"`
