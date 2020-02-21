@@ -2,9 +2,6 @@ github.com/Azure/go-ntlmssp v0.0.0-20191115210519-2b2be6cc8ed4 h1:jxtswewdgihgXM
 github.com/Azure/go-ntlmssp v0.0.0-20191115210519-2b2be6cc8ed4/go.mod h1:chxPXzSsl7ZWRAuOIE23GDNzjWuZquvFlgA8xmpunjU=
 github.com/ThomsonReutersEikon/go-ntlm v0.0.0-20180604201143-51f51a355c40 h1:q76f+r2nGpDJtwFGH0E6ZWl/CFxlQNY5UpSAhcSwPaI=
 github.com/ThomsonReutersEikon/go-ntlm v0.0.0-20180604201143-51f51a355c40/go.mod h1:0eFwySJYxbNw/r8cJ01IeztpJfwrgrmiLtYig80Yvrc=
-github.com/ThomsonReutersEikon/go-ntlm v0.0.0-20181130171125-cf23bd1ecf18 h1:RlOimIFMhxYWS3dkHzqgLjigsn9OC6EOeSBL9dEUmxk=
-github.com/gorilla/schema v0.0.0-20171211162101-9fa3b6af65dc h1:ZTcKDaJOhVhscc4XgpGKLRJJXD2bk879TBpXWzHDE5A=
-github.com/gorilla/schema v0.0.0-20171211162101-9fa3b6af65dc/go.mod h1:kgLaKoK1FELgZqMAVxx/5cbj0kT+57qxUrAlIO2eleU=
 github.com/joho/godotenv v1.3.1-0.20181120194748-69ed1d913aa8 h1:vl9Dx+WZL4Ec+pW96v24t+EQ73w0xw5xpgwTUfoJAVQ=
 github.com/joho/godotenv v1.3.1-0.20181120194748-69ed1d913aa8/go.mod h1:7hK45KPybAkOC6peb+G5yklZfMxEjkZhHbwpqxOKXbg=
 github.com/kr/pretty v0.1.0 h1:L/CwN0zerZDmRFUapSPitk6f+Q3+0za1rQkzVuMiMFI=
