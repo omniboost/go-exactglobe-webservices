@@ -149,6 +149,12 @@ type NewAccount struct {
 	InvoiceAddressPostCode string `json:"InvoiceAddressPostCode"`
 	InvoiceCity            string `json:"InvoiceCity"`
 	InvoiceCountry         string `json:"InvoiceCountry"`
+	MailingAddress1        string `json:"MailingAddress1"`
+	MailingAddress2        string `json:"MailingAddress2"`
+	MailingAddress3        string `json:"MailingAddress3"`
+	MailingPostcode        string `json:"MailingPostcode"`
+	MailingCity            string `json:"MailingCity"`
+	MailingCountry         string `json:"MailingCountry"`
 	PostalAddressLine1     string `json:"PostalAddressLine1"`
 	PostalAddressLine2     string `json:"PostalAddressLine2"`
 	PostalAddressLine3     string `json:"PostalAddressLine3"`
