@@ -136,6 +136,12 @@ type NewAccount struct {
 	ContactEmail           string `json:"ContactEmail"`
 	ContactGender          string `json:"ContactGender"`
 	VATNumber              string `json:"VATNumber"`
+	DeliveryAddressline1   string `json:"DeliveryAddressline1"`
+	DeliveryAddressline2   string `json:"DeliveryAddressline2"`
+	DeliveryAddressline3   string `json:"DeliveryAddressline3"`
+	DeliveryPostCode       string `json:"DeliveryPostCode"`
+	DeliveryCity           string `json:"DeliveryCity"`
+	DeliveryCountry        string `json:"DeliveryCountry"`
 	InvoiceAddress         string `json:"InvoiceAddress"`
 	InvoiceAddress2        string `json:"InvoiceAddress2"`
 	InvoiceAddress3        string `json:"InvoiceAddress3"`
