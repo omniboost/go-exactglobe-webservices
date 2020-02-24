@@ -128,6 +128,7 @@ type NewAccount struct {
 	CustomerStatus         string `json:"CustomerStatus"`
 	AccountName            string `json:"AccountName"`
 	CountryOfOrigin        string `json:"CountryOfOrigin"`
+	CountryOfAssembly      string `json:"CountryOfAssembly"`
 	PhoneNumber            string `json:"PhoneNumber"`
 	FaxNumber              string `json:"FaxNumber"`
 	ContactTitle           string `json:"ContactTitle"`
