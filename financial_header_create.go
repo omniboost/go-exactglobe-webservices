@@ -134,10 +134,12 @@ func (r *FinancialHeaderCreateRequest) Do() (FinancialHeaderCreateResponseBody, 
 }
 
 type NewFinancialHeader struct {
-	TransactionKey string `json:"TransactionKey"`
-	Journal        string `json:"Journal"`
-	DebtorNumber   string `json:"DebtorNumber"`
-	OurReference   string `json:"OurReference"`
-	YourReference  string `json:"YourReference"`
-	Description    string `json:"Description"`
+	TransactionKey string       `json:"TransactionKey"`
+	Journal        string       `json:"Journal"`
+	DebtorNumber   string       `json:"DebtorNumber"`
+	OurReference   string       `json:"OurReference"`
+	YourReference  string       `json:"YourReference"`
+	Description    string       `json:"Description"`
+	EntryDate      edm.DateTime `json:"EntryDate"`
+	ReportingDate  edm.DateTime `json:"ReportingDate"`
 }
