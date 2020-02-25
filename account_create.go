@@ -137,30 +137,30 @@ type NewAccount struct {
 	ContactEmail           string `json:"ContactEmail"`
 	ContactGender          string `json:"ContactGender"`
 	VATNumber              string `json:"VATNumber"`
-	DeliveryAddressline1   string `json:"DeliveryAddressline1"`
-	DeliveryAddressline2   string `json:"DeliveryAddressline2"`
-	DeliveryAddressline3   string `json:"DeliveryAddressline3"`
-	DeliveryPostCode       string `json:"DeliveryPostCode"`
-	DeliveryCity           string `json:"DeliveryCity"`
-	DeliveryCountry        string `json:"DeliveryCountry"`
-	InvoiceAddress         string `json:"InvoiceAddress"`
-	InvoiceAddress2        string `json:"InvoiceAddress2"`
-	InvoiceAddress3        string `json:"InvoiceAddress3"`
-	InvoiceAddressPostCode string `json:"InvoiceAddressPostCode"`
-	InvoiceCity            string `json:"InvoiceCity"`
-	InvoiceCountry         string `json:"InvoiceCountry"`
-	MailingAddress1        string `json:"MailingAddress1"`
-	MailingAddress2        string `json:"MailingAddress2"`
-	MailingAddress3        string `json:"MailingAddress3"`
-	MailingPostcode        string `json:"MailingPostcode"`
-	MailingCity            string `json:"MailingCity"`
-	MailingCountry         string `json:"MailingCountry"`
-	PostalAddressLine1     string `json:"PostalAddressLine1"`
-	PostalAddressLine2     string `json:"PostalAddressLine2"`
-	PostalAddressLine3     string `json:"PostalAddressLine3"`
-	PostalPostCode         string `json:"PostalPostCode"`
-	PostalCity             string `json:"PostalCity"`
-	PostalCountry          string `json:"PostalCountry"`
-	DebtorNumber           string `json:"DebtorNumber"`
-	DebtorCode             string `json:"DebtorCode"`
+	DeliveryAddressline1   string `json:"DeliveryAddressline1,omitempty"`
+	DeliveryAddressline2   string `json:"DeliveryAddressline2,omitempty"`
+	DeliveryAddressline3   string `json:"DeliveryAddressline3,omitempty"`
+	DeliveryPostCode       string `json:"DeliveryPostCode,omitempty"`
+	DeliveryCity           string `json:"DeliveryCity,omitempty"`
+	DeliveryCountry        string `json:"DeliveryCountry,omitempty"`
+	InvoiceAddress         string `json:"InvoiceAddress,omitempty"`
+	InvoiceAddress2        string `json:"InvoiceAddress2,omitempty"`
+	InvoiceAddress3        string `json:"InvoiceAddress3,omitempty"`
+	InvoiceAddressPostCode string `json:"InvoiceAddressPostCode,omitempty"`
+	InvoiceCity            string `json:"InvoiceCity,omitempty"`
+	InvoiceCountry         string `json:"InvoiceCountry,omitempty"`
+	MailingAddress1        string `json:"MailingAddress1,omitempty"`
+	MailingAddress2        string `json:"MailingAddress2,omitempty"`
+	MailingAddress3        string `json:"MailingAddress3,omitempty"`
+	MailingPostcode        string `json:"MailingPostcode,omitempty"`
+	MailingCity            string `json:"MailingCity,omitempty"`
+	MailingCountry         string `json:"MailingCountry,omitempty"`
+	PostalAddressLine1     string `json:"PostalAddressLine1,omitempty"`
+	PostalAddressLine2     string `json:"PostalAddressLine2,omitempty"`
+	PostalAddressLine3     string `json:"PostalAddressLine3,omitempty"`
+	PostalPostCode         string `json:"PostalPostCode,omitempty"`
+	PostalCity             string `json:"PostalCity,omitempty"`
+	PostalCountry          string `json:"PostalCountry,omitempty"`
+	DebtorNumber           string `json:"DebtorNumber,omitempty"`
+	DebtorCode             string `json:"DebtorCode,omitempty"`
 }
