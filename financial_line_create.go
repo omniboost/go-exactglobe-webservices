@@ -223,4 +223,5 @@ type NewFinancialLine struct {
 	VATCode        string       `json:"VATCode"`
 	Description    string       `json:"Description"`
 	EntryDate      edm.DateTime `json:"EntryDate"`
+	ReportingDate  edm.DateTime `json:"ReportingDate"`
 }
