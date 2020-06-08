@@ -131,7 +131,7 @@ type FinancialLineCreateResponseBody struct {
 		CostUnit              string      `json:"CostUnit"`
 		CostUnitDescription   interface{} `json:"CostUnitDescription"`
 		FulfillmentDate       interface{} `json:"FulfillmentDate"`
-		DebtorNumber          interface{} `json:"DebtorNumber"`
+		DebtorNumber          string      `json:"DebtorNumber"`
 		DebtorName            interface{} `json:"DebtorName"`
 		CreditorNumber        interface{} `json:"CreditorNumber"`
 		CreditorName          interface{} `json:"CreditorName"`
