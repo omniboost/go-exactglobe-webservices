@@ -1,7 +1,5 @@
 github.com/Azure/go-ntlmssp v0.0.0-20191115210519-2b2be6cc8ed4 h1:jxtswewdgihgXM6ayHYtISwzkAOaRzyXpgUMamb8mHw=
 github.com/Azure/go-ntlmssp v0.0.0-20191115210519-2b2be6cc8ed4/go.mod h1:chxPXzSsl7ZWRAuOIE23GDNzjWuZquvFlgA8xmpunjU=
-github.com/ThomsonReutersEikon/go-ntlm v0.0.0-20180604201143-51f51a355c40 h1:q76f+r2nGpDJtwFGH0E6ZWl/CFxlQNY5UpSAhcSwPaI=
-github.com/ThomsonReutersEikon/go-ntlm v0.0.0-20180604201143-51f51a355c40/go.mod h1:0eFwySJYxbNw/r8cJ01IeztpJfwrgrmiLtYig80Yvrc=
 github.com/joho/godotenv v1.3.1-0.20181120194748-69ed1d913aa8 h1:vl9Dx+WZL4Ec+pW96v24t+EQ73w0xw5xpgwTUfoJAVQ=
 github.com/joho/godotenv v1.3.1-0.20181120194748-69ed1d913aa8/go.mod h1:7hK45KPybAkOC6peb+G5yklZfMxEjkZhHbwpqxOKXbg=
 github.com/kr/pretty v0.1.0 h1:L/CwN0zerZDmRFUapSPitk6f+Q3+0za1rQkzVuMiMFI=
@@ -13,8 +11,6 @@ github.com/omniboost/schema v1.1.1-0.20191030093734-a170fe1a7240 h1:+yAcEWiT5FCK
 github.com/omniboost/schema v1.1.1-0.20191030093734-a170fe1a7240/go.mod h1:9fjiXyATsFBndd1ZtrF4KJOs/VwBFmhX4N9yblkz+Jg=
 github.com/satori/go.uuid v1.2.0 h1:0uYX9dsZ2yD7q2RtLRtPSdGDWzjeM3TbMJP9utgA0ww=
 github.com/satori/go.uuid v1.2.0/go.mod h1:dA0hQrYB0VpLJoorglMZABFdXlWrHn1NEOzdhQKdks0=
-github.com/vadimi/go-http-ntlm v1.0.1 h1:tsNFVvQ2XfAgZtQIMiF+x3gqbweeQP1NxiqwCXiEnyA=
-github.com/vadimi/go-http-ntlm v1.0.1/go.mod h1:zdwpQlrr/jJfyPQnpynZtpUw8w8AtpcwwauzTyvpqko=
 golang.org/x/crypto v0.0.0-20190308221718-c2843e01d9a2/go.mod h1:djNgcEr1/C05ACkg1iLfiJU5Ep61QUkGW8qpdssI0+w=
 golang.org/x/crypto v0.0.0-20200204104054-c9f3fb736b72 h1:+ELyKg6m8UBf0nPFSqD0mi7zUfwPyXo23HNjMnXPz7w=
 golang.org/x/crypto v0.0.0-20200204104054-c9f3fb736b72/go.mod h1:LzIPMQfyMNhhGPhUkYOs5KpL4U8rLKemX1yGLhDgUto=
@@ -24,5 +20,5 @@ golang.org/x/sys v0.0.0-20190412213103-97732733099d/go.mod h1:h1NjWce9XRLGQEsW7w
 golang.org/x/text v0.3.0/go.mod h1:NqM8EUOU14njkJ3fqMW+pc6Ldnwhi/IjpwHt7yyuwOQ=
 gopkg.in/check.v1 v1.0.0-20180628173108-788fd7840127 h1:qIbj1fsPNlZgppZ+VLlY7N33q108Sa+fhmuc+sWQYwY=
 gopkg.in/check.v1 v1.0.0-20180628173108-788fd7840127/go.mod h1:Co6ibVJAznAaIkqp8huTwlJQCZ016jof/cbN4VW5Yz0=
-gopkg.in/guregu/null.v3 v3.4.0 h1:AOpMtZ85uElRhQjEDsFx21BkXqFPwA7uoJukd4KErIs=
-gopkg.in/guregu/null.v3 v3.4.0/go.mod h1:E4tX2Qe3h7QdL+uZ3a0vqvYwKQsRSQKM5V4YltdgH9Y=
+gopkg.in/guregu/null.v3 v3.5.0 h1:xTcasT8ETfMcUHn0zTvIYtQud/9Mx5dJqD554SZct0o=
+gopkg.in/guregu/null.v3 v3.5.0/go.mod h1:E4tX2Qe3h7QdL+uZ3a0vqvYwKQsRSQKM5V4YltdgH9Y=
