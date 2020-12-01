@@ -224,4 +224,5 @@ type NewFinancialLine struct {
 	Description    string       `json:"Description"`
 	EntryDate      edm.DateTime `json:"EntryDate"`
 	ReportingDate  edm.DateTime `json:"ReportingDate"`
+	Quantity       float64      `json:"Quantity"`
 }
