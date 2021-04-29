@@ -223,7 +223,7 @@ type NewFinancialLine struct {
 	VATCode        string       `json:"VATCode"`
 	Description    string       `json:"Description"`
 	EntryDate      edm.DateTime `json:"EntryDate"`
-	ReportingDate  edm.DateTime `json:"ReportingDate"`
+	ReportingDate  edm.Date     `json:"ReportingDate"`
 	Quantity       float64      `json:"Quantity"`
 	Textfield1     string       `json:"Textfield1,omitempty"`
 	Textfield2     string       `json:"Textfield2,omitempty"`

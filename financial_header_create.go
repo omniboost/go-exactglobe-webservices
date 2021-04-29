@@ -141,5 +141,5 @@ type NewFinancialHeader struct {
 	YourReference  string       `json:"YourReference"`
 	Description    string       `json:"Description"`
 	EntryDate      edm.DateTime `json:"EntryDate"`
-	ReportingDate  edm.DateTime `json:"ReportingDate"`
+	ReportingDate  edm.Date     `json:"ReportingDate"`
 }
