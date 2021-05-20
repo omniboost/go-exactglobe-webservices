@@ -209,25 +209,25 @@ func (r *FinancialLineCreateRequest) Do() (FinancialLineCreateResponseBody, erro
 }
 
 type NewFinancialLine struct {
-	TransactionKey string       `json:"TransactionKey,omitempty"`
-	Journal        string       `json:"Journal"`
-	GLAccount      string       `json:"GLAccount"`
-	CostCenter     string       `json:"CostCenter,omitempty"`
-	CostUnit       string       `json:"CostUnit,omitempty"`
-	Resource       int          `json:"Resource"`
-	Project        string       `json:"Project,omitempty"`
-	Amount         float64      `json:"Amount"`
-	DebtorNumber   string       `json:"DebtorNumber,omitempty"`
-	CreditorNumber string       `json:"CreditorNumber,omitempty"`
-	VATAmount      float64      `json:"VATAmount"`
-	VATCode        string       `json:"VATCode"`
-	Description    string       `json:"Description"`
-	EntryDate      edm.DateTime `json:"EntryDate"`
-	ReportingDate  edm.Date     `json:"ReportingDate"`
-	Quantity       float64      `json:"Quantity"`
-	Textfield1     string       `json:"Textfield1,omitempty"`
-	Textfield2     string       `json:"Textfield2,omitempty"`
-	Textfield3     string       `json:"Textfield3,omitempty"`
-	Textfield4     string       `json:"Textfield4,omitempty"`
-	Textfield5     string       `json:"Textfield5,omitempty"`
+	TransactionKey string   `json:"TransactionKey,omitempty"`
+	Journal        string   `json:"Journal"`
+	GLAccount      string   `json:"GLAccount"`
+	CostCenter     string   `json:"CostCenter,omitempty"`
+	CostUnit       string   `json:"CostUnit,omitempty"`
+	Resource       int      `json:"Resource"`
+	Project        string   `json:"Project,omitempty"`
+	Amount         float64  `json:"Amount"`
+	DebtorNumber   string   `json:"DebtorNumber,omitempty"`
+	CreditorNumber string   `json:"CreditorNumber,omitempty"`
+	VATAmount      float64  `json:"VATAmount"`
+	VATCode        string   `json:"VATCode"`
+	Description    string   `json:"Description"`
+	EntryDate      edm.Date `json:"EntryDate"`
+	ReportingDate  edm.Date `json:"ReportingDate"`
+	Quantity       float64  `json:"Quantity"`
+	Textfield1     string   `json:"Textfield1,omitempty"`
+	Textfield2     string   `json:"Textfield2,omitempty"`
+	Textfield3     string   `json:"Textfield3,omitempty"`
+	Textfield4     string   `json:"Textfield4,omitempty"`
+	Textfield5     string   `json:"Textfield5,omitempty"`
 }
