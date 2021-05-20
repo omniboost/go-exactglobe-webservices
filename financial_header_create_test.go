@@ -11,20 +11,28 @@ import (
 func TestFinancialHeaderCreate(t *testing.T) {
 	lines := []string{
 		`{
-			"TransactionKey": "",
-			"Journal": "90",
-			"GLAccount": "0010",
-			"CostCenter": "VERKOOP",
-			"CostUnit": "BINNEN",
-			"Amount": "100"
+        "Amount": 3,
+        "CostCenter": "",
+        "CreditorNumber": null,
+        "Description": "test",
+        "EntryDate": "/Date(1581465600000)/",
+        "FinancialPeriod": 6,
+        "FinancialYear": 2020,
+        "GLAccount": "140200001",
+        "VATAmount": 0,
+        "VATCode": "0"
 		}`,
 		`{
-			"TransactionKey": "",
-			"Journal": "90",
-			"GLAccount": "0010",
-			"CostCenter": "VERKOOP",
-			"CostUnit": "BINNEN",
-			"Amount": "-100"
+        "Amount": -3,
+        "CostCenter": "005000",
+        "CreditorNumber": null,
+        "Description": "test",
+        "EntryDate": "/Date(1581465600000)/",
+        "FinancialPeriod": 6,
+        "FinancialYear": 2020,
+        "GLAccount": "370300000",
+        "VATAmount": 0,
+        "VATCode": "0"
 		}`,
 	}
 
@@ -52,7 +60,7 @@ func TestFinancialHeaderCreate(t *testing.T) {
 
 	header := `{
 		"TransactionKey": "",
-		"Journal": "90"
+		"Journal": "190"
 	}`
 
 	req := client.NewFinancialHeaderCreateRequest()

@@ -2,7 +2,7 @@ package webservices_test
 
 import (
 	"encoding/json"
-	"log"
+	"fmt"
 	"testing"
 
 	_ "github.com/joho/godotenv/autoload"
@@ -10,7 +10,7 @@ import (
 
 func TestGeneralLedgerAccountRead(t *testing.T) {
 	req := client.NewGeneralLedgerAccountReadRequest()
-	req.QueryParams().Top.Set(20)
+	req.QueryParams().Top.Set(5)
 	// req.QueryParams().Filter.Set("EntryNumber eq '20950144'")
 	// req.QueryParams().Filter.Set("Journal eq ' 95' and GLAccount eq '140300002' and ReportingDate gt DateTime'2020-06-06T00:00:00Z'")
 
@@ -20,5 +20,5 @@ func TestGeneralLedgerAccountRead(t *testing.T) {
 	}
 
 	b, _ := json.MarshalIndent(resp, "", "  ")
-	log.Println(string(b))
+	fmt.Println(string(b))
 }

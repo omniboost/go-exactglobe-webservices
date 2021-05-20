@@ -10,7 +10,7 @@ import (
 
 func TestCostCenterRead(t *testing.T) {
 	req := client.NewCostCenterReadRequest()
-	req.QueryParams().Top.Set(500)
+	// req.QueryParams().Top.Set(4)
 
 	// req.PathParams().Date = time.Date(2018, 12, 5, 0, 0, 0, 0, time.UTC)
 	resp, err := req.Do()

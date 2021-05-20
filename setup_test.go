@@ -1,6 +1,7 @@
 package webservices_test
 
 import (
+	"crypto/tls"
 	"log"
 	"net/http"
 	"net/url"
@@ -36,19 +37,13 @@ func TestMain(m *testing.M) {
 	}
 	client.SetDisallowUnknownFields(true)
 	client.SetBeforeRequestDo(func(httpClient *http.Client, req *http.Request, body interface{}) {
-		// ntlmTransport := &ntlm.NtlmTransport{
-		// 	User:     username,
-		// 	Password: password,
-		// 	Client: &http.Client{
-		// 		Transport:     httpClient.Transport,
-		// 		CheckRedirect: httpClient.CheckRedirect,
-		// 		Timeout:       httpClient.Timeout,
-		// 		Jar:           httpClient.Jar,
-		// 	},
-		// }
+		tr := &http.Transport{
+			TLSClientConfig:   &tls.Config{InsecureSkipVerify: true},
+			ForceAttemptHTTP2: false,
+		}
 
 		ntlmTransport := ntlmssp.Negotiator{
-			RoundTripper: http.DefaultTransport,
+			RoundTripper: tr,
 		}
 
 		httpClient.Transport = ntlmTransport

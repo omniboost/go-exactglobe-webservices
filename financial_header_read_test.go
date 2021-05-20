@@ -11,7 +11,8 @@ import (
 func TestFinancialHeaderRead(t *testing.T) {
 	req := client.NewFinancialHeaderReadRequest()
 	req.QueryParams().Top.Set(10)
-	req.QueryParams().Filter.Set("EntryNumber eq '21900009'")
+	// req.QueryParams().Filter.Set("ID eq 14639")
+	// req.QueryParams().Filter.Set("Journal eq '95'")
 
 	resp, err := req.Do()
 	if err != nil {

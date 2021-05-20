@@ -2,7 +2,7 @@ package webservices_test
 
 import (
 	"encoding/json"
-	"log"
+	"fmt"
 	"testing"
 
 	_ "github.com/joho/godotenv/autoload"
@@ -10,8 +10,11 @@ import (
 
 func TestAccountRead(t *testing.T) {
 	req := client.NewAccountReadRequest()
-	req.QueryParams().Top.Set(10)
-	req.QueryParams().Filter.Set("AccountCode eq '            80004153'")
+	req.QueryParams().Top.Set(1)
+	// req.QueryParams().Filter.Set("ID eq guid'{e4e12d2a-409b-4447-93ad-360efc59a4e5}'")
+	// req.QueryParams().Filter.Set("AccountCode eq '           80004153'")
+	// req.QueryParams().Filter.Set("AccountCode eq '           965200000'")
+	// req.QueryParams().Filter.Set("ID eq guid'{e4e12d2a-409b-4447-93ad-360efc59a4e5}'")
 	// req.QueryParams().Select.Add("CompanyName")
 	// req.QueryParams().Select.Add("FirstName")
 	// req.QueryParams().Select.Add("LastName")
@@ -24,5 +27,5 @@ func TestAccountRead(t *testing.T) {
 	}
 
 	b, _ := json.MarshalIndent(resp, "", "  ")
-	log.Println(string(b))
+	fmt.Println(string(b))
 }
