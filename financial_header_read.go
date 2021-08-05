@@ -158,8 +158,8 @@ type FinancialHeader struct {
 	JournalAccount         string      `json:"JournalAccount"`
 	SequenceNumber         string      `json:"SequenceNumber"`
 	EntryNumber            string      `json:"EntryNumber"`
-	EntryDate              string      `json:"EntryDate"`
-	ReportingDate          string      `json:"ReportingDate"`
+	EntryDate              edm.Date    `json:"EntryDate"`
+	ReportingDate          edm.Date    `json:"ReportingDate"`
 	Description            string      `json:"Description"`
 	CostCenter             interface{} `json:"CostCenter"`
 	CostCenterDescription  interface{} `json:"CostCenterDescription"`
@@ -206,8 +206,8 @@ type FinancialHeader struct {
 	BankStatementLines     string      `json:"BankStatementLines"`
 	BankStatementNumber    interface{} `json:"BankStatementNumber"`
 	PaymentStatus          string      `json:"PaymentStatus"`
-	PaymentReceived        int         `json:"PaymentReceived"`
-	PaymentReceivedTC      int         `json:"PaymentReceivedTC"`
+	PaymentReceived        float64     `json:"PaymentReceived"`
+	PaymentReceivedTC      float64     `json:"PaymentReceivedTC"`
 	OutstandingAmount      float64     `json:"OutstandingAmount"`
 	OutstandingAmountTC    float64     `json:"OutstandingAmountTC"`
 	MandateReference       interface{} `json:"MandateReference"`
