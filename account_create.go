@@ -131,11 +131,11 @@ type NewAccount struct {
 	CountryOfAssembly      string `json:"CountryOfAssembly"`
 	PhoneNumber            string `json:"PhoneNumber"`
 	FaxNumber              string `json:"FaxNumber"`
-	ContactTitle           string `json:"ContactTitle"`
-	ContactFirstName       string `json:"ContactFirstName"`
-	ContactLastName        string `json:"ContactLastName"`
-	ContactEmail           string `json:"ContactEmail"`
-	ContactGender          string `json:"ContactGender"`
+	ContactTitle           string `json:"ContactTitle,omitempty"`
+	ContactFirstName       string `json:"ContactFirstName,omitempty"`
+	ContactLastName        string `json:"ContactLastName,omitempty"`
+	ContactEmail           string `json:"ContactEmail,omitempty"`
+	ContactGender          string `json:"ContactGender,omitempty"`
 	VATNumber              string `json:"VATNumber"`
 	DeliveryAddressline1   string `json:"DeliveryAddressline1,omitempty"`
 	DeliveryAddressline2   string `json:"DeliveryAddressline2,omitempty"`
