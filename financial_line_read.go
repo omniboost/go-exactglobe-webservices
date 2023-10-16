@@ -149,7 +149,7 @@ type FinancialLine struct {
 	EntryNumber           string      `json:"EntryNumber"`
 	Journal               string      `json:"Journal"`
 	LineNumber            int         `json:"LineNumber"`
-	EntryDate             string      `json:"EntryDate"`
+	EntryDate             edm.Date    `json:"EntryDate"`
 	GLAccount             string      `json:"GLAccount"`
 	Description           string      `json:"Description"`
 	CurrencyCode          string      `json:"CurrencyCode"`
@@ -162,7 +162,7 @@ type FinancialLine struct {
 	CostCenterDescription string      `json:"CostCenterDescription"`
 	CostUnit              interface{} `json:"CostUnit"`
 	CostUnitDescription   interface{} `json:"CostUnitDescription"`
-	FulfillmentDate       string      `json:"FulfillmentDate"`
+	FulfillmentDate       edm.Date    `json:"FulfillmentDate"`
 	DebtorNumber          interface{} `json:"DebtorNumber"`
 	DebtorName            interface{} `json:"DebtorName"`
 	CreditorNumber        interface{} `json:"CreditorNumber"`
@@ -179,7 +179,7 @@ type FinancialLine struct {
 	Warehouse             string      `json:"Warehouse"`
 	WarehouseLocation     string      `json:"WarehouseLocation"`
 	OrderNumber           interface{} `json:"OrderNumber"`
-	ReportingDate         string      `json:"ReportingDate"`
+	ReportingDate         edm.Date    `json:"ReportingDate"`
 	Textfield1            interface{} `json:"Textfield1"`
 	Textfield2            interface{} `json:"Textfield2"`
 	Textfield3            interface{} `json:"Textfield3"`
@@ -204,9 +204,9 @@ type FinancialLine struct {
 	PaymentMethod         interface{} `json:"PaymentMethod"`
 	PaymentCondition      interface{} `json:"PaymentCondition"`
 	PaymentReference      interface{} `json:"PaymentReference"`
-	CSSDDueDate           interface{} `json:"CSSDDueDate"`
-	CSSDDueDate2          interface{} `json:"CSSDDueDate2"`
-	InvoiceDueDate        interface{} `json:"InvoiceDueDate"`
+	CSSDDueDate           edm.Date    `json:"CSSDDueDate"`
+	CSSDDueDate2          edm.Date    `json:"CSSDDueDate2"`
+	InvoiceDueDate        edm.Date    `json:"InvoiceDueDate"`
 	TransactionOrigin     string      `json:"TransactionOrigin"`
 	DocumentID            interface{} `json:"DocumentID"`
 	DocAttachmentID       interface{} `json:"DocAttachmentID"`

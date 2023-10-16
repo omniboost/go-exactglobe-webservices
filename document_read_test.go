@@ -8,9 +8,9 @@ import (
 	_ "github.com/joho/godotenv/autoload"
 )
 
-func TestAccountRead(t *testing.T) {
-	req := client.NewAccountReadRequest()
-	req.QueryParams().Top.Set(1)
+func TestDocumentRead(t *testing.T) {
+	req := client.NewDocumentReadRequest()
+	req.QueryParams().Top.Set(10)
 	// req.QueryParams().Filter.Set("ID eq guid'{e4e12d2a-409b-4447-93ad-360efc59a4e5}'")
 	// req.QueryParams().Filter.Set("AccountCode eq '           80004153'")
 	// req.QueryParams().Filter.Set("DebtorCode eq '776724'")
@@ -31,3 +31,4 @@ func TestAccountRead(t *testing.T) {
 	b, _ := json.MarshalIndent(resp, "", "  ")
 	fmt.Println(string(b))
 }
+

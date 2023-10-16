@@ -2,7 +2,7 @@ package webservices_test
 
 import (
 	"encoding/json"
-	"log"
+	"fmt"
 	"testing"
 
 	_ "github.com/joho/godotenv/autoload"
@@ -10,7 +10,7 @@ import (
 
 func TestCostUnitRead(t *testing.T) {
 	req := client.NewCostUnitReadRequest()
-	req.QueryParams().Top.Set(2)
+	// req.QueryParams().Top.Set(2)
 
 	// req.PathParams().Date = time.Date(2018, 12, 5, 0, 0, 0, 0, time.UTC)
 	resp, err := req.Do()
@@ -19,5 +19,5 @@ func TestCostUnitRead(t *testing.T) {
 	}
 
 	b, _ := json.MarshalIndent(resp, "", "  ")
-	log.Println(string(b))
+	fmt.Println(string(b))
 }
