@@ -4,6 +4,7 @@ import (
 	"net/http"
 	"net/url"
 
+	"github.com/omniboost/go-exactglobe-webservices/edm"
 	"github.com/omniboost/go-exactglobe-webservices/odata"
 	"github.com/omniboost/go-exactglobe-webservices/utils"
 )
@@ -103,7 +104,17 @@ func (r *CostUnitReadRequest) NewResponseBody() *CostUnitReadResponseBody {
 	return &CostUnitReadResponseBody{}
 }
 
-type CostUnitReadResponseBody CostUnits
+type CostUnitReadResponseBody struct {
+	D struct {
+		Results []struct {
+			Next     string       `json:"__next"`
+			MetaData edm.MetaData `json:"__metadata"`
+
+			CostUnit
+		} `json:"results"`
+		Next string `json:"__next"`
+	} `json:"d"`
+}
 
 func (r *CostUnitReadRequest) URL() url.URL {
 	return r.client.GetEndpointURL("CostUnit", r.PathParams())
@@ -130,4 +141,29 @@ func (r *CostUnitReadRequest) Do() (CostUnitReadResponseBody, error) {
 type CostUnits []CostUnit
 
 type CostUnit struct {
+	Code             string `json:"Code"`
+	CompanyCode      string `json:"CompanyCode"`
+	CompanyName      string `json:"CompanyName"`
+	CreatedDate      string `json:"CreatedDate"`
+	Creator          int    `json:"Creator"`
+	CreatorFullName  string `json:"CreatorFullName"`
+	Description      string `json:"Description"`
+	Description1     string `json:"Description1,omitempty"`
+	Description2     string `json:"Description2,omitempty"`
+	Description3     string `json:"Description3,omitempty"`
+	Description4     string `json:"Description4,omitempty"`
+	ID               int    `json:"ID"`
+	ModifiedDate     string `json:"ModifiedDate"`
+	Modifier         int    `json:"Modifier"`
+	ModifierFullName string `json:"ModifierFullName"`
+	NumberFreeField1 int    `json:"NumberFreeField1,omitempty"`
+	NumberFreeField2 int    `json:"NumberFreeField2,omitempty"`
+	NumberFreeField3 int    `json:"NumberFreeField3,omitempty"`
+	NumberFreeField4 int    `json:"NumberFreeField4,omitempty"`
+	NumberFreeField5 int    `json:"NumberFreeField5,omitempty"`
+	TextFreeField1   string `json:"TextFreeField1,omitempty"`
+	TextFreeField2   string `json:"TextFreeField2,omitempty"`
+	TextFreeField3   string `json:"TextFreeField3,omitempty"`
+	TextFreeField4   string `json:"TextFreeField4,omitempty"`
+	TextFreeField5   string `json:"TextFreeField5,omitempty"`
 }
