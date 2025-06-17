@@ -4,6 +4,7 @@ import (
 	"net/http"
 	"net/url"
 
+	"github.com/omniboost/go-exactglobe-webservices/edm"
 	"github.com/omniboost/go-exactglobe-webservices/odata"
 	"github.com/omniboost/go-exactglobe-webservices/utils"
 )
@@ -103,7 +104,17 @@ func (r *CostCenterReadRequest) NewResponseBody() *CostCenterReadResponseBody {
 	return &CostCenterReadResponseBody{}
 }
 
-type CostCenterReadResponseBody CostCenters
+type CostCenterReadResponseBody struct {
+	D struct {
+		Results []struct {
+			Next     string       `json:"__next"`
+			MetaData edm.MetaData `json:"__metadata"`
+
+			CostCenter
+		} `json:"results"`
+		Next string `json:"__next"`
+	} `json:"d"`
+}
 
 func (r *CostCenterReadRequest) URL() url.URL {
 	return r.client.GetEndpointURL("CostCenter", r.PathParams())
@@ -133,6 +144,7 @@ type CostCenter struct {
 	AllocationLevel   int
 	Class1            string
 	Class2            string
+	Class3            string
 	Class             string
 	Class4            string
 	ClassDescription1 string
