@@ -142,4 +142,5 @@ type NewFinancialHeader struct {
 	Description    string   `json:"Description"`
 	EntryDate      edm.Date `json:"EntryDate"`
 	ReportingDate  edm.Date `json:"ReportingDate"`
+	InvoiceDueDate edm.Date `json:"InvoiceDueDate,omitempty"`
 }
