@@ -1,6 +1,7 @@
 package webservices_test
 
 import (
+	"context"
 	"encoding/json"
 	"log"
 	"testing"
@@ -14,7 +15,7 @@ func TestFinancialLineRead(t *testing.T) {
 	req.QueryParams().Filter.Set("EntryNumber eq '30090281'")
 	// req.QueryParams().Filter.Set("Journal eq '809' and ReportingDate gt DateTime'2022-04-30T00:00:00Z' and GLAccount eq '    97400' and Description eq 'Kamers OOO (002)'")
 
-	resp, err := req.Do()
+	resp, err := req.Do(context.Background())
 	if err != nil {
 		t.Error(err)
 	}

@@ -1,6 +1,7 @@
 package webservices
 
 import (
+	"context"
 	"net/http"
 	"net/url"
 
@@ -109,7 +110,6 @@ type BinaryReadResponseBody struct {
 		Results []struct {
 			Next     string       `json:"__next"`
 			MetaData edm.MetaData `json:"__metadata"`
-
 		} `json:"results"`
 		Next string `json:"__next"`
 	} `json:"d"`
@@ -119,9 +119,9 @@ func (r *BinaryReadRequest) URL() url.URL {
 	return r.client.GetEndpointURL("Binary", r.PathParams())
 }
 
-func (r *BinaryReadRequest) Do() (BinaryReadResponseBody, error) {
+func (r *BinaryReadRequest) Do(ctx context.Context) (BinaryReadResponseBody, error) {
 	// Create http request
-	req, err := r.client.NewRequest(nil, r.Method(), r.URL(), nil)
+	req, err := r.client.NewRequest(ctx, r.Method(), r.URL(), nil)
 	if err != nil {
 		return *r.NewResponseBody(), err
 	}

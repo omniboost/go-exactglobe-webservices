@@ -1,6 +1,7 @@
 package webservices
 
 import (
+	"context"
 	"net/http"
 	"net/url"
 
@@ -120,9 +121,9 @@ func (r *CostCenterReadRequest) URL() url.URL {
 	return r.client.GetEndpointURL("CostCenter", r.PathParams())
 }
 
-func (r *CostCenterReadRequest) Do() (CostCenterReadResponseBody, error) {
+func (r *CostCenterReadRequest) Do(ctx context.Context) (CostCenterReadResponseBody, error) {
 	// Create http request
-	req, err := r.client.NewRequest(nil, r.Method(), r.URL(), r.RequestBody())
+	req, err := r.client.NewRequest(ctx, r.Method(), r.URL(), r.RequestBody())
 	if err != nil {
 		return *r.NewResponseBody(), err
 	}

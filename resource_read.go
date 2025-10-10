@@ -1,6 +1,7 @@
 package webservices
 
 import (
+	"context"
 	"net/http"
 	"net/url"
 
@@ -121,9 +122,9 @@ func (r *ResourceReadRequest) URL() url.URL {
 	return r.client.GetEndpointURL("Resource", r.PathParams())
 }
 
-func (r *ResourceReadRequest) Do() (ResourceReadResponseBody, error) {
+func (r *ResourceReadRequest) Do(ctx context.Context) (ResourceReadResponseBody, error) {
 	// Create http request
-	req, err := r.client.NewRequest(nil, r.Method(), r.URL(), r.RequestBody())
+	req, err := r.client.NewRequest(ctx, r.Method(), r.URL(), r.RequestBody())
 	if err != nil {
 		return *r.NewResponseBody(), err
 	}
@@ -150,7 +151,7 @@ type Resource struct {
 	AssistantFullName           string     `json:"AssistantFullName"`
 	AssistantID                 int        `json:"AssistantID"`
 	AccountAddressID            *uuid.UUID `json:"AccountAddressID"`
-	AccountContactID            *uuid.UUID `json:""AccountContactID"`
+	AccountContactID            *uuid.UUID `json:"AccountContactID"`
 	AccountID                   int        `json:"AccountID"`
 	BackOfficeBlocked           bool       `json:"BackOfficeBlocked"`
 	BankAccount1                string     `json:"BankAccount1"`

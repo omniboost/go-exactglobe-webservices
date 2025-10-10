@@ -1,6 +1,7 @@
 package webservices_test
 
 import (
+	"context"
 	"encoding/json"
 	"log"
 	"testing"
@@ -13,7 +14,7 @@ func TestVATRead(t *testing.T) {
 	// req.QueryParams().Top.Set(4)
 
 	// req.PathParams().Date = time.Date(2018, 12, 5, 0, 0, 0, 0, time.UTC)
-	resp, err := req.Do()
+	resp, err := req.Do(context.Background())
 	if err != nil {
 		t.Error(err)
 	}

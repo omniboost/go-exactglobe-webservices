@@ -1,6 +1,7 @@
 package webservices
 
 import (
+	"context"
 	"net/http"
 	"net/url"
 
@@ -115,9 +116,9 @@ func (r *FinancialHeaderCreateRequest) URL() url.URL {
 	return r.client.GetEndpointURL("FinancialHeader", r.PathParams())
 }
 
-func (r *FinancialHeaderCreateRequest) Do() (FinancialHeaderCreateResponseBody, error) {
+func (r *FinancialHeaderCreateRequest) Do(ctx context.Context) (FinancialHeaderCreateResponseBody, error) {
 	// Create http request
-	req, err := r.client.NewRequest(nil, r.Method(), r.URL(), r.RequestBody())
+	req, err := r.client.NewRequest(ctx, r.Method(), r.URL(), r.RequestBody())
 	if err != nil {
 		return *r.NewResponseBody(), err
 	}

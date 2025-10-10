@@ -1,6 +1,7 @@
 package webservices
 
 import (
+	"context"
 	"net/http"
 	"net/url"
 
@@ -108,9 +109,9 @@ func (r *AccountUpdateRequest) URL() url.URL {
 	return r.client.GetEndpointURL("Account(guid'{{.GUID}}')", r.PathParams())
 }
 
-func (r *AccountUpdateRequest) Do() (AccountUpdateResponseBody, error) {
+func (r *AccountUpdateRequest) Do(ctx context.Context) (AccountUpdateResponseBody, error) {
 	// Update http request
-	req, err := r.client.NewRequest(nil, r.Method(), r.URL(), r.RequestBody())
+	req, err := r.client.NewRequest(ctx, r.Method(), r.URL(), r.RequestBody())
 	if err != nil {
 		return *r.NewResponseBody(), err
 	}

@@ -1,6 +1,7 @@
 package webservices
 
 import (
+	"context"
 	"net/http"
 	"net/url"
 
@@ -121,9 +122,9 @@ func (r *AccountReadRequest) URL() url.URL {
 	return r.client.GetEndpointURL("Account", r.PathParams())
 }
 
-func (r *AccountReadRequest) Do() (AccountReadResponseBody, error) {
+func (r *AccountReadRequest) Do(ctx context.Context) (AccountReadResponseBody, error) {
 	// Create http request
-	req, err := r.client.NewRequest(nil, r.Method(), r.URL(), nil)
+	req, err := r.client.NewRequest(ctx, r.Method(), r.URL(), nil)
 	if err != nil {
 		return *r.NewResponseBody(), err
 	}

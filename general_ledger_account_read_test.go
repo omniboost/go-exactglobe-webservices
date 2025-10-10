@@ -1,6 +1,7 @@
 package webservices_test
 
 import (
+	"context"
 	"encoding/json"
 	"fmt"
 	"testing"
@@ -15,7 +16,7 @@ func TestGeneralLedgerAccountRead(t *testing.T) {
 	// req.QueryParams().Filter.Set("EntryNumber eq '20950144'")
 	// req.QueryParams().Filter.Set("Journal eq '802' ReportingDate gt DateTime'2022-05-01T00:00:00Z'")
 
-	resp, err := req.Do()
+	resp, err := req.Do(context.Background())
 	if err != nil {
 		t.Error(err)
 	}

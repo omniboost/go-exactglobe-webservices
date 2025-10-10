@@ -1,6 +1,7 @@
 package webservices
 
 import (
+	"context"
 	"net/http"
 	"net/url"
 
@@ -110,9 +111,9 @@ func (r *ProjectReadRequest) URL() url.URL {
 	return r.client.GetEndpointURL("Project", r.PathParams())
 }
 
-func (r *ProjectReadRequest) Do() (ProjectReadResponseBody, error) {
+func (r *ProjectReadRequest) Do(ctx context.Context) (ProjectReadResponseBody, error) {
 	// Create http request
-	req, err := r.client.NewRequest(nil, r.Method(), r.URL(), r.RequestBody())
+	req, err := r.client.NewRequest(ctx, r.Method(), r.URL(), r.RequestBody())
 	if err != nil {
 		return *r.NewResponseBody(), err
 	}

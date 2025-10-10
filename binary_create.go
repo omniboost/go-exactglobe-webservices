@@ -1,6 +1,7 @@
 package webservices
 
 import (
+	"context"
 	"net/http"
 	"net/url"
 
@@ -103,9 +104,9 @@ func (r *BinaryCreateRequest) URL() url.URL {
 	return r.client.GetEndpointURL("Binary", r.PathParams())
 }
 
-func (r *BinaryCreateRequest) Do() (BinaryCreateResponseBody, error) {
+func (r *BinaryCreateRequest) Do(ctx context.Context) (BinaryCreateResponseBody, error) {
 	// Create http request
-	req, err := r.client.NewRequest(nil, r.Method(), r.URL(), r.RequestBody())
+	req, err := r.client.NewRequest(ctx, r.Method(), r.URL(), r.RequestBody())
 	if err != nil {
 		return *r.NewResponseBody(), err
 	}

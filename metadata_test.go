@@ -1,6 +1,7 @@
 package webservices_test
 
 import (
+	"context"
 	"encoding/json"
 	"log"
 	"testing"
@@ -11,7 +12,7 @@ import (
 func TestMetadata(t *testing.T) {
 	req := client.NewMetadataRequest()
 
-	resp, err := req.Do()
+	resp, err := req.Do(context.Background())
 	if err != nil {
 		t.Error(err)
 	}

@@ -1,6 +1,7 @@
 package webservices
 
 import (
+	"context"
 	"net/http"
 	"net/url"
 
@@ -120,9 +121,9 @@ func (r *DocumentTypeReadRequest) URL() url.URL {
 	return r.client.GetEndpointURL("DocumentType", r.PathParams())
 }
 
-func (r *DocumentTypeReadRequest) Do() (DocumentTypeReadResponseBody, error) {
+func (r *DocumentTypeReadRequest) Do(ctx context.Context) (DocumentTypeReadResponseBody, error) {
 	// Create http request
-	req, err := r.client.NewRequest(nil, r.Method(), r.URL(), nil)
+	req, err := r.client.NewRequest(ctx, r.Method(), r.URL(), nil)
 	if err != nil {
 		return *r.NewResponseBody(), err
 	}
@@ -142,77 +143,77 @@ type DocumentTypes []DocumentType
 
 type DocumentType struct {
 	edm.MetaData                 `json:"__metadata,omitempty"`
-	AccountLabel                 string      `json:"AccountLabel,omitempty"`
-	AccountSelection             string      `json:"AccountSelection,omitempty"`
-	AccountType                  string      `json:"AccountType,omitempty"`
-	UseAccount                   int         `json:"UseAccount,omitempty"`
-	Active                       bool        `json:"Active,omitempty"`
-	AllowApproval                bool        `json:"AllowApproval,omitempty"`
-	AssortmentDefault            int         `json:"AssortmentDefault,omitempty"`
-	UseAssortment                int         `json:"UseAssortment,omitempty"`
-	AllowAttachment              bool        `json:"AllowAttachment,omitempty"`
-	CreatorRoleLevel1            int         `json:"CreatorRoleLevel1,omitempty"`
-	CreatorRoleLevel2            int         `json:"CreatorRoleLevel2,omitempty"`
-	CreatorRoleLevel3            int         `json:"CreatorRoleLevel3,omitempty"`
-	CreatorRole1                 int         `json:"CreatorRole1,omitempty"`
-	CreatorRoleLevel1Description string      `json:"CreatorRoleLevel1Description,omitempty"`
-	CreatorRole2                 int         `json:"CreatorRole2,omitempty"`
-	CreatorRoleLevel2Description string      `json:"CreatorRoleLevel2Description,omitempty"`
-	CreatorRole3                 int         `json:"CreatorRole3,omitempty"`
-	CreatorRoleLevel3Description string      `json:"CreatorRoleLevel3Description,omitempty"`
-	CreatorSecurityLevel         int         `json:"CreatorSecurityLevel,omitempty"`
-	IsSystemGenerated            bool        `json:"IsSystemGenerated,omitempty"`
-	Creator                      int         `json:"Creator,omitempty"`
-	CreatedDate                  string      `json:"CreatedDate,omitempty"`
-	DaysBeforeDeletion           int         `json:"DaysBeforeDeletion,omitempty"`
-	DefaultCategory              string      `json:"DefaultCategory,omitempty"`
-	DefaultGroupID               int         `json:"DefaultGroupID,omitempty"`
-	DefaultSecurityLevel         int         `json:"DefaultSecurityLevel,omitempty"`
-	DefaultSubCategory           string      `json:"DefaultSubCategory,omitempty"`
-	DeleteRights                 string      `json:"DeleteRights,omitempty"`
-	TypeDescription              string      `json:"TypeDescription,omitempty"`
-	EditRights                   string      `json:"EditRights,omitempty"`
-	AllowEditSecurityLevel       bool        `json:"AllowEditSecurityLevel,omitempty"`
-	FinancialOurReference        int         `json:"FinancialOurReference,omitempty"`
-	FinancialSelection           string      `json:"FinancialSelection,omitempty"`
-	UseTransaction               int         `json:"UseTransaction,omitempty"`
-	FinancialYourReference       int         `json:"FinancialYourReference,omitempty"`
-	GroupID                      string      `json:"GroupID,omitempty"`
-	GroupName                    string      `json:"GroupName,omitempty"`
-	ID                           int         `json:"ID,omitempty"`
-	ItemDefault                  string      `json:"ItemDefault,omitempty"`
-	ItemLabel                    string      `json:"ItemLabel,omitempty"`
-	ItemDescription              string      `json:"ItemDescription,omitempty"`
-	ItemSelection                string      `json:"ItemSelection,omitempty"`
-	ItemStatus                   string      `json:"ItemStatus,omitempty"`
-	UseItem                      int         `json:"UseItem,omitempty"`
-	UseSerialNumber              int         `json:"UseSerialNumber,omitempty"`
-	Manager                      int         `json:"Manager,omitempty"`
-	ManagerFullName              string      `json:"ManagerFullName,omitempty"`
-	Modifier                     int         `json:"Modifier,omitempty"`
-	ModifiedDate                 string      `json:"ModifiedDate,omitempty"`
-	UseOrderNumber               int         `json:"UseOrderNumber,omitempty"`
-	UsePaymentReference          int         `json:"UsePaymentReference,omitempty"`
-	Policy                       string      `json:"Policy,omitempty"`
+	AccountLabel                 string `json:"AccountLabel,omitempty"`
+	AccountSelection             string `json:"AccountSelection,omitempty"`
+	AccountType                  string `json:"AccountType,omitempty"`
+	UseAccount                   int    `json:"UseAccount,omitempty"`
+	Active                       bool   `json:"Active,omitempty"`
+	AllowApproval                bool   `json:"AllowApproval,omitempty"`
+	AssortmentDefault            int    `json:"AssortmentDefault,omitempty"`
+	UseAssortment                int    `json:"UseAssortment,omitempty"`
+	AllowAttachment              bool   `json:"AllowAttachment,omitempty"`
+	CreatorRoleLevel1            int    `json:"CreatorRoleLevel1,omitempty"`
+	CreatorRoleLevel2            int    `json:"CreatorRoleLevel2,omitempty"`
+	CreatorRoleLevel3            int    `json:"CreatorRoleLevel3,omitempty"`
+	CreatorRole1                 int    `json:"CreatorRole1,omitempty"`
+	CreatorRoleLevel1Description string `json:"CreatorRoleLevel1Description,omitempty"`
+	CreatorRole2                 int    `json:"CreatorRole2,omitempty"`
+	CreatorRoleLevel2Description string `json:"CreatorRoleLevel2Description,omitempty"`
+	CreatorRole3                 int    `json:"CreatorRole3,omitempty"`
+	CreatorRoleLevel3Description string `json:"CreatorRoleLevel3Description,omitempty"`
+	CreatorSecurityLevel         int    `json:"CreatorSecurityLevel,omitempty"`
+	IsSystemGenerated            bool   `json:"IsSystemGenerated,omitempty"`
+	Creator                      int    `json:"Creator,omitempty"`
+	CreatedDate                  string `json:"CreatedDate,omitempty"`
+	DaysBeforeDeletion           int    `json:"DaysBeforeDeletion,omitempty"`
+	DefaultCategory              string `json:"DefaultCategory,omitempty"`
+	DefaultGroupID               int    `json:"DefaultGroupID,omitempty"`
+	DefaultSecurityLevel         int    `json:"DefaultSecurityLevel,omitempty"`
+	DefaultSubCategory           string `json:"DefaultSubCategory,omitempty"`
+	DeleteRights                 string `json:"DeleteRights,omitempty"`
+	TypeDescription              string `json:"TypeDescription,omitempty"`
+	EditRights                   string `json:"EditRights,omitempty"`
+	AllowEditSecurityLevel       bool   `json:"AllowEditSecurityLevel,omitempty"`
+	FinancialOurReference        int    `json:"FinancialOurReference,omitempty"`
+	FinancialSelection           string `json:"FinancialSelection,omitempty"`
+	UseTransaction               int    `json:"UseTransaction,omitempty"`
+	FinancialYourReference       int    `json:"FinancialYourReference,omitempty"`
+	GroupID                      string `json:"GroupID,omitempty"`
+	GroupName                    string `json:"GroupName,omitempty"`
+	ID                           int    `json:"ID,omitempty"`
+	ItemDefault                  string `json:"ItemDefault,omitempty"`
+	ItemLabel                    string `json:"ItemLabel,omitempty"`
+	ItemDescription              string `json:"ItemDescription,omitempty"`
+	ItemSelection                string `json:"ItemSelection,omitempty"`
+	ItemStatus                   string `json:"ItemStatus,omitempty"`
+	UseItem                      int    `json:"UseItem,omitempty"`
+	UseSerialNumber              int    `json:"UseSerialNumber,omitempty"`
+	Manager                      int    `json:"Manager,omitempty"`
+	ManagerFullName              string `json:"ManagerFullName,omitempty"`
+	Modifier                     int    `json:"Modifier,omitempty"`
+	ModifiedDate                 string `json:"ModifiedDate,omitempty"`
+	UseOrderNumber               int    `json:"UseOrderNumber,omitempty"`
+	UsePaymentReference          int    `json:"UsePaymentReference,omitempty"`
+	Policy                       string `json:"Policy,omitempty"`
 	PolicyDescription            string `json:"PolicyDescription,omitempty"`
-	ProjectDefault               string      `json:"ProjectDefault,omitempty"`
-	ProjectDescription           string      `json:"ProjectDescription,omitempty"`
-	ProjectSelection             string      `json:"ProjectSelection,omitempty"`
-	UseProject                   int         `json:"UseProject,omitempty"`
-	ResourceLabel                string      `json:"ResourceLabel,omitempty"`
-	ResourceSelection            string      `json:"ResourceSelection,omitempty"`
-	ResourceStatus               string      `json:"ResourceStatus,omitempty"`
-	ResourceType                 string      `json:"ResourceType,omitempty"`
-	UseResource                  int         `json:"UseResource,omitempty"`
-	UseSecurityApproval          bool        `json:"UseSecurityApproval,omitempty"`
-	UseShipmentMethod            int         `json:"UseShipmentMethod,omitempty"`
-	SystemType                   bool        `json:"SystemType,omitempty"`
-	Layout                       string      `json:"Layout,omitempty"`
-	LayoutSubject                string      `json:"LayoutSubject,omitempty"`
-	UseOwner                     bool        `json:"UseOwner,omitempty"`
-	AllowPublish                 bool        `json:"AllowPublish,omitempty"`
-	AllowRating                  bool        `json:"AllowRating,omitempty"`
-	UsedInStatisticReports       bool        `json:"UsedInStatisticReports,omitempty"`
-	VersionType                  string      `json:"VersionType,omitempty"`
-	UseWarehouse                 int         `json:"UseWarehouse,omitempty"`
+	ProjectDefault               string `json:"ProjectDefault,omitempty"`
+	ProjectDescription           string `json:"ProjectDescription,omitempty"`
+	ProjectSelection             string `json:"ProjectSelection,omitempty"`
+	UseProject                   int    `json:"UseProject,omitempty"`
+	ResourceLabel                string `json:"ResourceLabel,omitempty"`
+	ResourceSelection            string `json:"ResourceSelection,omitempty"`
+	ResourceStatus               string `json:"ResourceStatus,omitempty"`
+	ResourceType                 string `json:"ResourceType,omitempty"`
+	UseResource                  int    `json:"UseResource,omitempty"`
+	UseSecurityApproval          bool   `json:"UseSecurityApproval,omitempty"`
+	UseShipmentMethod            int    `json:"UseShipmentMethod,omitempty"`
+	SystemType                   bool   `json:"SystemType,omitempty"`
+	Layout                       string `json:"Layout,omitempty"`
+	LayoutSubject                string `json:"LayoutSubject,omitempty"`
+	UseOwner                     bool   `json:"UseOwner,omitempty"`
+	AllowPublish                 bool   `json:"AllowPublish,omitempty"`
+	AllowRating                  bool   `json:"AllowRating,omitempty"`
+	UsedInStatisticReports       bool   `json:"UsedInStatisticReports,omitempty"`
+	VersionType                  string `json:"VersionType,omitempty"`
+	UseWarehouse                 int    `json:"UseWarehouse,omitempty"`
 }

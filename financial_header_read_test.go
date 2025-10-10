@@ -1,6 +1,7 @@
 package webservices_test
 
 import (
+	"context"
 	"encoding/json"
 	"log"
 	"testing"
@@ -16,7 +17,7 @@ func TestFinancialHeaderRead(t *testing.T) {
 	// req.QueryParams().Filter.Set("Journal eq '809' and ReportingDate gt DateTime'2022-05-16T00:00:00Z' and ReportingDate lt DateTime'2022-05-17T00:00:00Z'")
 	req.QueryParams().Filter.Set("EntryNumber eq '23700001'")
 
-	resp, err := req.Do()
+	resp, err := req.Do(context.Background())
 	if err != nil {
 		t.Error(err)
 	}
@@ -30,7 +31,7 @@ func TestFinancialHeaderRead(t *testing.T) {
 	// 	req.QueryParams().Filter.Set(fmt.Sprintf("EntryNumber eq '%s'", r.EntryNumber))
 	// 	// req.QueryParams().Filter.Set("Journal eq ' 95' and GLAccount eq '140300002' and ReportingDate gt DateTime'2020-06-06T00:00:00Z'")
 
-	// 	resp, err := req.Do()
+	// 	resp, err := req.Do(context.Background())
 	// 	if err != nil {
 	// 		t.Error(err)
 	// 	}

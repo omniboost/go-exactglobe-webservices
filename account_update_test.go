@@ -1,6 +1,7 @@
 package webservices_test
 
 import (
+	"context"
 	"encoding/json"
 	"log"
 	"testing"
@@ -42,7 +43,7 @@ func TestAccountUpdate(t *testing.T) {
 
 	req.PathParams().GUID = "45610d56-daf0-491f-bd01-32b7c6fcdb9c"
 
-	resp, err := req.Do()
+	resp, err := req.Do(context.Background())
 	if err != nil {
 		t.Error(err)
 	}

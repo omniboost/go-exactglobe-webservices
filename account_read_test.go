@@ -1,6 +1,7 @@
 package webservices_test
 
 import (
+	"context"
 	"encoding/json"
 	"fmt"
 	"testing"
@@ -23,7 +24,7 @@ func TestAccountRead(t *testing.T) {
 	// req.QueryParams().Select.Add("FullName")
 
 	// req.PathParams().Date = time.Date(2018, 12, 5, 0, 0, 0, 0, time.UTC)
-	resp, err := req.Do()
+	resp, err := req.Do(context.Background())
 	if err != nil {
 		t.Error(err)
 	}

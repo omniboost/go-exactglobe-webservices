@@ -1,6 +1,7 @@
 package webservices
 
 import (
+	"context"
 	"net/http"
 	"net/url"
 
@@ -109,9 +110,9 @@ func (r *MetadataRequest) URL() url.URL {
 	return r.client.GetEndpointURL("$metadata", r.PathParams())
 }
 
-func (r *MetadataRequest) Do() (MetadataResponseBody, error) {
+func (r *MetadataRequest) Do(ctx context.Context) (MetadataResponseBody, error) {
 	// Create http request
-	req, err := r.client.NewRequest(nil, r.Method(), r.URL(), r.RequestBody())
+	req, err := r.client.NewRequest(ctx, r.Method(), r.URL(), r.RequestBody())
 	if err != nil {
 		return *r.NewResponseBody(), err
 	}
